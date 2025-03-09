@@ -1,0 +1,54 @@
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg employee-form-card p-4" style="max-width: 550px; width: 100%; background: rgba(255, 255, 255, 0.9); border-radius: 15px;">
+        <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #007bff, #6610f2); border-radius: 10px;">
+            <h3 class="m-2">{{ addressId ? 'Update Address' : 'Add Address' }}</h3>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="saveAddress()">
+                
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Full Name</label>
+                    <input type="text" class="form-control rounded-pill" [(ngModel)]="address.name" name="name" placeholder="Enter full name" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Phone Number</label>
+                    <input type="text" class="form-control rounded-pill" [(ngModel)]="address.phoneNo" name="phoneNo" placeholder="Enter phone number" required>
+                </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Address</label>
+                    <textarea class="form-control rounded-3" [(ngModel)]="address.address" name="address" placeholder="Enter address" rows="3" required></textarea>
+                </div>
+
+                <!-- City -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">City</label>
+                    <input type="text" class="form-control rounded-pill" [(ngModel)]="address.city" name="city" placeholder="Enter city" required>
+                </div>
+
+                <!-- State -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">State</label>
+                    <input type="text" class="form-control rounded-pill" [(ngModel)]="address.state" name="state" placeholder="Enter state" required>
+                </div>
+
+                <!-- Zipcode -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Zipcode</label>
+                    <input type="text" class="form-control rounded-pill" [(ngModel)]="address.zipcode" name="zipcode" placeholder="Enter zipcode" required>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg me-3 rounded-pill px-4 shadow-sm">{{ addressId ? 'Update' : 'Submit' }}</button>
+                    <a class="btn btn-danger btn-lg rounded-pill px-4 shadow-sm" routerLink="/">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

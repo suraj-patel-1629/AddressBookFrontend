@@ -1,0 +1,47 @@
+<div class="container mt-4">
+    <!-- Header -->
+    <div class="card shadow-lg p-3 border-0" style="border-radius: 12px;">
+        <div class="d-flex justify-content-between align-items-center px-3 py-3" 
+             style="background: linear-gradient(135deg, #007bff, #6610f2); border-radius: 10px;">
+            <h3 class="mb-0 fw-bold text-white">Address Book</h3>
+
+            <button class="btn btn-light btn-sm fw-bold shadow-sm d-flex align-items-center px-3 py-2"
+                    (click)="goToAddContact()"> 
+                <i class="bi bi-person-plus-fill me-2"></i> Add Contact
+            </button>
+        </div>
+
+        <!-- Address Table -->
+        <div class="table-responsive rounded bg-white p-3">
+            <table class="table table-hover align-middle text-center">
+                <thead class="bg-primary text-white" style="border-radius: 10px;">
+                    <tr>
+                        <th>FULL NAME</th>
+                        <th>PHONE NO.</th>
+                        <th>ADDRESS</th>
+                        <th>CITY</th>
+                        <th>STATE</th>
+                        <th>ZIPCODE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of filteredContacts()" class="align-middle">
+                        <td class="fw-semibold">{{ contact.name }}</td>
+                        <td>{{ contact.phoneNo }}</td>
+                        <td>{{ contact.address }}</td>
+                        <td>{{ contact.city }}</td>
+                        <td>{{ contact.state }}</td>
+                        <td>{{ contact.zipcode }}</td>
+                        <td>
+                            <i class="bi bi-pencil-square text-warning fs-5 me-3 edit-icon" role="button" 
+                               [routerLink]="['/edit', contact.id]" style="transition: 0.3s; cursor: pointer;"></i>
+                            <i class="bi bi-trash-fill text-danger fs-5 delete-icon" role="button" 
+                               (click)="deleteAddress(contact.id)" style="transition: 0.3s; cursor: pointer;"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
